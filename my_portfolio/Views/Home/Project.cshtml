@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Project";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/project.css" asp-append-version="true" />
+
+<section class="projects-section">
+    <div class="container">
+        <h1 class="section-title">My Projects</h1>
+
+        <div class="filter-section">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Web Development</button>
+            <button class="filter-btn">Mobile Apps</button>
+            <button class="filter-btn">UI/UX Design</button>
+        </div>
+
+        <div class="row">
+            <!-- Project Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 1" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-featured e-commerce platform built with ASP.NET Core, featuring user authentication,
+                            product management, and payment integration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 2" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A collaborative task management application with real-time updates, user roles,
+                            and project analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">SignalR</span>
+                            <span class="tech-tag">Azure</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/600/400" alt="Project 3" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Fitness Tracker</h3>
+                        <p class="project-description">
+                            A mobile-responsive fitness tracking application with workout plans,
+                            progress monitoring, and social features.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Blazor</span>
+                            <span class="tech-tag">.NET MAUI</span>
+                            <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">Charts.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Filter buttons functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Add your filtering logic here
+        });
+    });
+</script>

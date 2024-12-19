@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "About";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/about.css" asp-append-version="true" />
+
+<section class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="profile-section">
+                    <img src="/img/img.jpg" alt="Profile Picture" class="profile-image">
+                    <div class="contact-links">
+                        <a href="#" class="contact-link">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                        <a href="#" class="contact-link">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="about-content">
+                    <h1 class="section-title">About Me</h1>
+                    <p class="about-text">
+                        Hello! I'm a passionate full-stack developer with a strong foundation in ASP.NET Core and modern web technologies.
+                        I love creating efficient, scalable, and user-friendly applications that solve real-world problems.
+                    </p>
+                    <p class="about-text">
+                        With several years of experience in software development, I've worked on various projects ranging from
+                        e-commerce platforms to enterprise-level applications. I'm constantly learning and exploring new technologies
+                        to stay at the forefront of web development.
+                    </p>
+
+                    <div class="skills-section">
+                        <h2 class="skill-category-title">Technical Skills</h2>
+
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>ASP.NET Core</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+
+                            <div class="skill-name">
+                                <span>C#</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+
+                            <div class="skill-name">
+                                <span>JavaScript/TypeScript</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-section">
+                        <h2 class="skill-category-title">Experience</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2022 - Present</div>
+                                    <h3 class="timeline-title">Senior Software Developer</h3>
+                                    <p>Leading development of enterprise applications using ASP.NET Core</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2020 - 2022</div>
+                                    <h3 class="timeline-title">Full Stack Developer</h3>
+                                    <p>Developed and maintained multiple web applications</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2018 - 2020</div>
+                                    <h3 class="timeline-title">Junior Developer</h3>
+                                    <p>Started career with focus on backend development</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
