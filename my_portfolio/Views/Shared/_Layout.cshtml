@@ -13,7 +13,11 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                <a>
+                    <img src="~/img/portfoliologo.jpg" alt="Portfolio Logo" class="navbar-logo" />
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                </a>
+    
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,14 +42,24 @@
         </nav>
     </header>
 
-   
+
+
 
     <div class="container mt-5">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-2">
             @RenderBody()
         </main>
     </div>
 
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; @DateTime.Now.Year - Darius Cumpio</p>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

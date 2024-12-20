@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Project";
+    ViewData["Title"] = "Projects";
     Layout = "_Layout";
 }
 
@@ -18,10 +18,13 @@
 
         <div class="row">
             <!-- Project Card 1 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-category="Web Development">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 1" />
+                    <div class="project-image" data-project="project1">
+                        <img src="/img/img.jpg" alt="Project 1" />
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">E-Commerce Platform</h3>
@@ -30,6 +33,7 @@
                             product management, and payment integration.
                         </p>
                         <div class="project-tech">
+                            <span class="tech-tag">Web Development</span>
                             <span class="tech-tag">ASP.NET Core</span>
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">SQL Server</span>
@@ -48,10 +52,13 @@
             </div>
 
             <!-- Project Card 2 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-category="Mobile Apps">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 2" />
+                    <div class="project-image" data-project="project2">
+                        <img src="/img/img.jpg" alt="Project 2" />
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Task Management App</h3>
@@ -60,6 +67,7 @@
                             and project analytics.
                         </p>
                         <div class="project-tech">
+                            <span class="tech-tag">Mobile Apps</span>
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">ASP.NET Core</span>
                             <span class="tech-tag">SignalR</span>
@@ -78,10 +86,13 @@
             </div>
 
             <!-- Project Card 3 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-category="UI/UX Design">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="/api/placeholder/600/400" alt="Project 3" />
+                    <div class="project-image" data-project="project3">
+                        <img src="/img/img.jpg" alt="Project 3" />
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Fitness Tracker</h3>
@@ -90,6 +101,7 @@
                             progress monitoring, and social features.
                         </p>
                         <div class="project-tech">
+                            <span class="tech-tag">UI/UX Design</span>
                             <span class="tech-tag">Blazor</span>
                             <span class="tech-tag">.NET MAUI</span>
                             <span class="tech-tag">Entity Framework</span>
@@ -108,20 +120,189 @@
             </div>
         </div>
     </div>
+
+    <!-- Modern Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-overlay"></div>
+        <button class="close-modal">
+            <i class="fas fa-times"></i>
+            <span>Exit</span>
+        </button>
+        <div class="modal-content">
+            <button class="nav-btn prev-btn" title="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="modal-image-wrapper">
+                <div class="modal-image-container">
+                    <img src="" id="modalImage" class="modal-image" alt="Project Image">
+                </div>
+                <div class="image-counter">
+                    <span id="currentImageNum">1</span> / <span id="totalImages">4</span>
+                </div>
+            </div>
+            <button class="nav-btn next-btn" title="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="modal-thumbnails"></div>
+    </div>
 </section>
 
-<script>
-    // Filter buttons functionality
-    document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            // Add active class to clicked button
-            button.classList.add('active');
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Filter buttons functionality
+            $('.filter-btn').click(function () {
+                const category = $(this).text().trim();
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
 
-            // Add your filtering logic here
+                if (category === 'All') {
+                    $('.col-lg-4').fadeIn(300);
+                } else {
+                    $('.col-lg-4').fadeOut(200);
+                    setTimeout(() => {
+                        $(`.col-lg-4[data-category="${category}"]`).fadeIn(300);
+                    }, 200);
+                }
+            });
+
+            // Modal functionality
+            const modal = $('#imageModal');
+            const modalImg = $('#modalImage');
+            const closeBtn = $('.close-modal');
+            const prevBtn = $('.prev-btn');
+            const nextBtn = $('.next-btn');
+            const thumbnailsContainer = $('.modal-thumbnails');
+
+            let currentProjectImages = [];
+            let currentImageIndex = 0;
+
+            const projectImages = {
+                'project1': [
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg'
+                ],
+                'project2': [
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg'
+                ],
+                'project3': [
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg',
+                    '/img/img.jpg'
+                ]
+            };
+
+            $('.project-image').click(function () {
+                const projectId = $(this).data('project');
+                currentProjectImages = projectImages[projectId];
+                currentImageIndex = 0;
+                openModal(currentProjectImages[0]);
+            });
+
+            function openModal(imageSrc) {
+                modal.addClass('active').fadeIn(300);
+                modalImg.attr('src', imageSrc).hide().fadeIn(300);
+                $('#currentImageNum').text(currentImageIndex + 1);
+                $('#totalImages').text(currentProjectImages.length);
+                updateThumbnails();
+                $('body').css('overflow', 'hidden');
+            }
+
+            function updateThumbnails() {
+                thumbnailsContainer.empty();
+                currentProjectImages.forEach((img, index) => {
+                    const thumb = $('<img>', {
+                        src: img,
+                        class: 'thumbnail' + (index === currentImageIndex ? ' active' : ''),
+                        click: () => changeImage(index)
+                    });
+                    thumbnailsContainer.append(thumb);
+                });
+            }
+
+            function changeImage(newIndex) {
+                modalImg.fadeOut(150, function () {
+                    currentImageIndex = newIndex;
+                    $(this).attr('src', currentProjectImages[newIndex]).fadeIn(150);
+                    $('#currentImageNum').text(newIndex + 1);
+                    updateThumbnails();
+                });
+            }
+
+            function closeModal() {
+                modal.fadeOut(300, function () {
+                    $(this).removeClass('active');
+                    $('body').css('overflow', 'auto');
+                });
+            }
+
+            closeBtn.click(closeModal);
+            modal.click(function (e) {
+                if (e.target === this || $(e.target).hasClass('modal-overlay')) {
+                    closeModal();
+                }
+            });
+
+            prevBtn.click(function () {
+                let newIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+                changeImage(newIndex);
+            });
+
+            nextBtn.click(function () {
+                let newIndex = (currentImageIndex + 1) % currentProjectImages.length;
+                changeImage(newIndex);
+            });
+
+            $(document).keydown(function (e) {
+                if (modal.is(':visible')) {
+                    switch (e.key) {
+                        case 'ArrowLeft':
+                            prevBtn.click();
+                            break;
+                        case 'ArrowRight':
+                            nextBtn.click();
+                            break;
+                        case 'Escape':
+                            closeModal();
+                            break;
+                    }
+                }
+            });
+
+            $('.modal-image, .thumbnail').on('dragstart', function (e) {
+                e.preventDefault();
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            modalImg.on('touchstart', function (e) {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            modalImg.on('touchmove', function (e) {
+                touchEndX = e.touches[0].clientX;
+            });
+
+            modalImg.on('touchend', function () {
+                const swipeThreshold = 50;
+                const swipeLength = touchEndX - touchStartX;
+
+                if (Math.abs(swipeLength) > swipeThreshold) {
+                    if (swipeLength > 0) {
+                        prevBtn.click();
+                    } else {
+                        nextBtn.click();
+                    }
+                }
+            });
         });
-    });
-</script>
+    </script>
+}

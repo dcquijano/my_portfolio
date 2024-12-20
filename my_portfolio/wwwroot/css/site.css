@@ -5,18 +5,39 @@
     --light-bg: #f5f6fa;
 }
 
+/* Basic Layout */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
 }
 
+.container.mt-5 {
+    flex: 1 0 auto;
+}
+
+/* Navbar Styles */
 .navbar {
     background-color: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
     transition: all 0.3s ease;
 }
+.navbar-logo {
+    height: 40px; /* Adjust the height as needed */
+    width: auto; /* Ensures the logo scales proportionally */
+    margin-right: 10px; /* Optional spacing */
+}
+
 
 .navbar-brand {
     font-weight: 700;
@@ -47,6 +68,13 @@ body {
         width: 100%;
     }
 
+/* General Section Styling */
+.projects-section {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+    
+/* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
     padding: 6rem 0;
@@ -66,6 +94,7 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Button Styles */
 .btn-custom {
     padding: 0.8rem 2rem;
     border-radius: 50px;
@@ -84,12 +113,47 @@ body {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-
- /* for image in home */
+/* Image Styles */
 .circle-image {
-    width: 200px; /* Adjust size */
-    height: 200px; /* Adjust size */
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    object-fit: cover; /* Ensures the image fits within the circle */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+.footer {
+    background: var(--primary-color);
+    padding: 1rem 0; /* Reduced padding */
+    width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 2rem; /* Reduced from auto to fixed margin */
+}
+
+.copyright {
+    color: #ffffff; /* Solid white text */
+    font-size: 0.95rem;
+}
+
+    .copyright p {
+        margin: 0;
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 2.5rem;
+    }
+
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .circle-image {
+        width: 150px;
+        height: 150px;
+        margin: 2rem auto;
+    }
 }
