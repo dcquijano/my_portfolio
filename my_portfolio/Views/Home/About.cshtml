@@ -1,4 +1,17 @@
 ﻿@{
+    <style>
+        .skill-logo {
+            display: none;
+            width: 30px;
+            height: 30px;
+            margin-right: 1rem;
+            object-fit: contain;
+        }
+
+        .skill-item:hover .skill-logo {
+            display: inline-block;
+        }
+    </style>
     ViewData["Title"] = "About";
     Layout = "_Layout";
 }
@@ -11,7 +24,6 @@
             <div class="col-lg-4">
                 <div class="profile-section">
                     <img src="/img/img.jpg" alt="Profile Picture" class="profile-image">
-                   
                 </div>
             </div>
 
@@ -19,41 +31,90 @@
                 <div class="about-content">
                     <h1 class="section-title">About Me</h1>
                     <p class="about-text">
-                        Hello! I'm a passionate full-stack developer with a strong foundation in ASP.NET Core and modern web technologies.
-                        I love creating efficient, scalable, and user-friendly applications that solve real-world problems.
+                        I am Darius Q. Cumpio, a 4th-year student at the Asian College of Technology, specializing in programming. As a passionate and dedicated developer, I focus on both front-end and back-end development, utilizing ASP.NET Core and modern web technologies to deliver innovative solutions.
                     </p>
                     <p class="about-text">
-                        With several years of experience in software development, I've worked on various projects ranging from
-                        e-commerce platforms to enterprise-level applications. I'm constantly learning and exploring new technologies
-                        to stay at the forefront of web development.
+                        I thrive on creating efficient, scalable, and user-friendly applications that have a real-world impact. With hands-on experience in software development, I am committed to continuous learning and staying at the forefront of emerging technologies. My goal is to excel in the ever-evolving field of web and backend development while delivering meaningful and impactful solutions.
                     </p>
 
+
+
                     <div class="skills-section">
-                        <h2 class="skill-category-title">Technical Skills</h2>
+                        <h2 class="section-title">Technical Skills</h2>
+
+                        <!-- Programming Languages -->
+                        <h3 class="skill-group-title">Programming Languages</h3>
                         <div class="skill-category">
-                            <div class="skill-name">
-                                <span>ASP.NET Core</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-
-                            <div class="skill-name">
-                                <span>C#</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/csharp.png" alt="C#" class="skill-logo">
+                                    <span><b>C#</b></span>
+                                </div>
                             </div>
 
-                            <div class="skill-name">
-                                <span>JavaScript/TypeScript</span>
-                                <span>80%</span>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/js.png" alt="JavaScript" class="skill-logo">
+                                    <span><b>JavaScript</b></span>
+                                </div>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/html5.png" alt="HTML5" class="skill-logo">
+                                    <span><b>HTML5</b></span>
+                                </div>
                             </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/css3.png" alt="CSS3" class="skill-logo">
+                                    <span><b>CSS3</b></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frameworks & Tools -->
+                        <h3 class="skill-group-title">Frameworks & Tools</h3>
+                        <div class="skill-category">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/dotnet.png" alt="ASP.NET Core" class="skill-logo">
+                                    <span><b>ASP.NET Core</b></span>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/bootstrap.png" alt="Bootstrap" class="skill-logo">
+                                    <span><b>Bootstrap</b></span>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/vs.png" alt="Visual Studio" class="skill-logo">
+                                    <span><b>Visual Studio</b></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Databases -->
+                        <h3 class="skill-group-title">Databases</h3>
+                        <div class="skill-category">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/sql-server.png" alt="SQL Server" class="skill-logo">
+                                    <span><b>SQL Server</b></span>
+                                </div>
+                            </div>
+
+                           @*  <div class="skill-item">
+                                <div class="skill-header">
+                                    <img src="/img/mysql.png" alt="MySQL" class="skill-logo">
+                                    <span><b>MySQL</b></span>
+                                </div>
+                            </div> *@
                         </div>
                     </div>
 
@@ -62,27 +123,27 @@
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-content">
-                                    <div class="timeline-date">2022 - Present</div>
-                                    <h3 class="timeline-title">Senior Software Developer</h3>
-                                    <p>Leading development of enterprise applications using ASP.NET Core</p>
+                                    <div class="timeline-date">2024 - Present</div>
+                                    <h3 class="timeline-title">Capstone Project</h3>
+                                    <p>I am part of a team of four, and I take on the role of the programmer for our system. I am responsible for bringing our ideas to life through code, ensuring functionality and seamless performance.</p>
                                 </div>
                             </div>
 
                             <div class="timeline-item">
                                 <div class="timeline-content">
                                     <div class="timeline-date">2020 - 2022</div>
-                                    <h3 class="timeline-title">Full Stack Developer</h3>
-                                    <p>Developed and maintained multiple web applications</p>
+                                    <h3 class="timeline-title">Group Project</h3>
+                                    <p>I was only design, back and front and programming</p>
                                 </div>
                             </div>
 
-                            <div class="timeline-item">
+                           @*  <div class="timeline-item">
                                 <div class="timeline-content">
                                     <div class="timeline-date">2018 - 2020</div>
                                     <h3 class="timeline-title">Junior Developer</h3>
                                     <p>Started career with focus on backend development</p>
                                 </div>
-                            </div>
+                            </div> *@
                         </div>
                     </div>
                 </div>
