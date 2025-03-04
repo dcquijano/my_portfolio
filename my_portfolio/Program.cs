@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using my_portfolio.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<my_portfolioContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("my_portfolioContext") ?? throw new InvalidOperationException("Connection string 'my_portfolioContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

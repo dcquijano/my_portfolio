@@ -28,13 +28,17 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Project">Projects</a>
+                            <a class="nav-link" asp-controller="Project" asp-action="MyProject">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link" asp-controller="About" asp-action="AboutMe">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-link" asp-controller="Contact" asp-action="MyContact">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Messages" asp-action="Create">Message</a>
                         </li>
                     </ul>
                 </div>
@@ -77,5 +81,8 @@
             }
         });
     </script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
 </body>
 </html>
