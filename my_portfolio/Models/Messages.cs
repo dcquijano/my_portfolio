@@ -10,6 +10,7 @@ namespace my_portfolio.Models
 
         public string? Name { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
 
         public string? Subject { get; set; }
