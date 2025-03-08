@@ -12,8 +12,8 @@
     <div class="container">
         <h1 class="contact-title">Message</h1>
         <div class="row justify-content-center">
-            <form class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
-              
+            <form id="messageForm" class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg" method="post">
+
                 <div class="mb-6">
                     <label asp-for="Name" class="block text-lg font-semibold text-gray-700"></label>
                     <input asp-for="Name" class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
@@ -42,13 +42,13 @@
                     <span asp-validation-for="Message" class="text-red-600 mt-1 text-sm"></span>
                 </div>
 
-
                 <div>
-                    <input type="submit" value="Message" class="w-full p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none cursor-pointer" />
+                    <input type="submit" value="Send Message" class="w-full p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none cursor-pointer" />
                 </div>
             </form>
 
         </div>
+    </div>
 </section>
 
 <br />
@@ -61,11 +61,23 @@
     <!-- SweetAlert2 CDN -->
 
     <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Message Sent!',
-            text: 'Your message has been sent successfully.',
-            showConfirmButton: true
+             // Handle form submission with SweetAlert
+        document.getElementById('messageForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Simulate a successful form submission and show the SweetAlert
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Your message has been sent successfully.',
+                showConfirmButton: true
+            }).then(function() {
+                // After closing the SweetAlert, reset the form fields
+                document.getElementById('messageForm').reset();
+            });
+
+            // Optionally, you can submit the form after the alert if you want to send it to the server
+            // this.submit(); // Uncomment this line if you want to submit the form after the alert
         });
     </script>
 }
