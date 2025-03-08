@@ -12,8 +12,8 @@
     <div class="container">
         <h1 class="contact-title">Message</h1>
         <div class="row justify-content-center">
-            <form asp-action="Create" class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
-                <div asp-validation-summary="ModelOnly" class="text-red-600 mb-4"></div>
+            <form class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+              
                 <div class="mb-6">
                     <label asp-for="Name" class="block text-lg font-semibold text-gray-700"></label>
                     <input asp-for="Name" class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
@@ -48,16 +48,18 @@
                 </div>
             </form>
 
-    </div>
+        </div>
 </section>
 
 <br />
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <!-- SweetAlert2 CDN -->
- 
+
     <script>
         Swal.fire({
             icon: 'success',
